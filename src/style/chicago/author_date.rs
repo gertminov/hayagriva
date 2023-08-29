@@ -62,7 +62,7 @@ impl Default for ChicagoAuthorDate {
 impl ChicagoAuthorDate {
     /// Create a new author year citation formatter.
     pub fn new() -> Self {
-        Self { config: ChicagoConfig::new(), et_al_limit: 4 }
+        Self { config: ChicagoConfig::new(), et_al_limit: 3 }
     }
 
     fn uniqueness<'a>(author: &Person, db: &Database<'a>) -> Uniqueness {
@@ -186,6 +186,7 @@ impl<'a> CitationStyle<'a> for ChicagoAuthorDate {
 
             let space = if let Some(date) = date {
                 if !s.is_empty() {
+                    s.push(',');
                     s.push(' ');
                 }
                 s += &date.display_year();

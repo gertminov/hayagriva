@@ -240,7 +240,7 @@ pub(super) fn and_list_opt(
             res.push(' ');
         }
         if index + 2 == name_len && !(threshold > 0 && name_len >= threshold) {
-            res += "and ";
+            res += "& ";
         }
     }
 
